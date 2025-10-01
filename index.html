@@ -62,6 +62,13 @@
       top: 0;
       z-index: 1000;
       padding: 10px 0;
+      /* --- PERUBAHAN --- Menambahkan transisi untuk efek hide/show */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* --- PERUBAHAN --- Class baru untuk menyembunyikan header */
+    .header--hidden {
+        transform: translateY(-100%);
     }
 
     .navbar {
@@ -99,10 +106,18 @@
 
     /* --- Hero Section --- */
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1594291225901-4435591469e7?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
-      color: var(--light-color);
-      text-align: center;
-      padding: 120px 0;
+        /* --- PERUBAHAN --- Menambahkan motif bakso dengan SVG di background */
+        background-color: #555; /* Fallback color jika gambar gagal dimuat */
+        background-image: 
+            url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3Cpath d='M10 50 Q20 40, 30 50 T50 50' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M0 20 Q10 10, 20 20 T40 20' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+            linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            url('https://images.unsplash.com/photo-1594291225901-4435591469e7?q=80&w=1974&auto=format&fit=crop');
+        background-position: center center;
+        background-size: auto, cover, cover;
+        background-repeat: repeat, no-repeat, no-repeat;
+        color: var(--light-color);
+        text-align: center;
+        padding: 120px 0;
     }
     
     .hero h1 {
@@ -167,11 +182,11 @@
     }
 
     .menu-item img {
-  width: 100%;
-  aspect-ratio: 13 / 16; /* <-- Mengatur rasio potret 9:16 */
-  object-fit: cover; /* <-- Memastikan gambar mengisi area tanpa distorsi */
-  margin-bottom: 15px;
-}
+        width: 100%;
+        aspect-ratio: 13 / 16; /* <-- Mengatur rasio potret 9:16 */
+        object-fit: cover; /* <-- Memastikan gambar mengisi area tanpa distorsi */
+        margin-bottom: 15px;
+    }
     
     .menu-item h3 {
         margin-bottom: 10px;
@@ -222,28 +237,28 @@
     }
 
     /* --- Style untuk Tombol WhatsApp Melayang --- */
-.whatsapp-fab {
-  position: fixed; /* Tetap di posisi yang sama saat di-scroll */
-  width: 60px;
-  height: 60px;
-  bottom: 25px; /* Jarak dari bawah */
-  right: 25px;  /* Jarak dari kanan */
-  background-color: #25D366; /* Warna khas WhatsApp */
-  color: #FFF;
-  border-radius: 50%; /* Membuatnya bulat */
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
-  z-index: 100; /* Memastikan tombol selalu di atas konten lain */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
+    .whatsapp-fab {
+      position: fixed; /* Tetap di posisi yang sama saat di-scroll */
+      width: 60px;
+      height: 60px;
+      bottom: 25px; /* Jarak dari bawah */
+      right: 25px;  /* Jarak dari kanan */
+      background-color: #25D366; /* Warna khas WhatsApp */
+      color: #FFF;
+      border-radius: 50%; /* Membuatnya bulat */
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+      z-index: 100; /* Memastikan tombol selalu di atas konten lain */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
 
-.whatsapp-fab:hover {
-  transform: scale(1.1); /* Sedikit membesar saat kursor di atasnya */
-}
+    .whatsapp-fab:hover {
+      transform: scale(1.1); /* Sedikit membesar saat kursor di atasnya */
+    }
     
     /* --- Footer --- */
     .footer {
@@ -273,22 +288,19 @@
             max-width: 100%; /* Lebar penuh di mobile */
         }
     }
-
   </style>
 </head>
 <body>
 
   <header class="header">
     <nav class="navbar">
-
       <img src="logo.jpg" alt="Logo Bakso Nikmat" style="height: 100px;">  
-      <a href="#" class="logo">Bakso Sapi NADNEU</a> <ul class="nav-links">
-        <a href="#" class="logo">
-  
-</a>
+      <a href="#" class="logo">Bakso Sapi NADNEU</a>
+      <ul class="nav-links">
         <li><a href="#about">Tentang Kami</a></li>
         <li><a href="#menu">Menu</a></li>
-        <li><a href="#presentation">Penyajian</a></li> <li><a href="#contact">Kontak</a></li>
+        <li><a href="#presentation">Penyajian</a></li>
+        <li><a href="#contact">Kontak</a></li>
       </ul>
     </nav>
   </header>
@@ -304,7 +316,6 @@
   <section id="about" class="container">
     <div class="about-content">
       <div class="about-image">
-        
         <img src="mangkukbakso.jpg">
       </div>
       <div class="about-text">
@@ -318,25 +329,22 @@
     <div class="container">
       <h2>Menu Andalan Kami</h2>
       <div class="menu-item">
-        
         <img src="menubakso.jpg">
         <h3>Menu</h3>
-        
       </div>
     </div>
   </section>
 
-  <section id="presentation" class="container"> <h2>Penyajian Bakso Kami</h2>
+  <section id="presentation" class="container">
+    <h2>Penyajian Bakso Kami</h2>
     <div class="presentation-grid">
       <div class="presentation-item">
         <h3>Penyajian Lama</h3>
-        
         <img src="penyajianlama.jpg">
         <p></p>
       </div>
       <div class="presentation-item">
         <h3>Penyajian Modern (Sekarang)</h3>
-        
         <img src="penyajianbaru.jpg" alt="Penyajian Bakso Versi Baru">
         <p>Penyajian yg baru memakai paper bowl foodgrade</p>
       </div>
@@ -347,21 +355,41 @@
       <div class="container">
           <h2>Hubungi Kami</h2>
           <div class="contact-info">
-              
               <p><strong>Jam Buka:</strong><br>Setiap Hari: 10:00 - 22:00 WIB</p>
               <p><strong>Telepon:</strong><br>+628129498198</p>
           </div>
       </div>
 
       <a href="https://wa.me/628129498198?text=Halo,%20saya%20mau%20pesan%20bakso" class="whatsapp-fab" target="_blank">
-  <img src="wa.png" alt="WhatsApp" style="width: 32px; height: 32px;">
-</a>
-
+        <img src="wa.png" alt="WhatsApp" style="width: 32px; height: 32px;">
+      </a>
   </section>
 
   <footer class="footer">
     <p>© 2025 Bakso Nikmat. Semua Hak Cipta Dilindungi.</p>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Pastikan kode berjalan hanya di layar mobile/kecil
+      if (window.innerWidth <= 768) {
+        const header = document.querySelector(".header");
+        let lastScrollTop = 0;
+
+        window.addEventListener("scroll", () => {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          // Jika scroll ke bawah dan sudah melewati tinggi header
+          if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+            header.classList.add("header--hidden");
+          } else { // Jika scroll ke atas
+            header.classList.remove("header--hidden");
+          }
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+        }, false);
+      }
+    });
+  </script>
 
 </body>
 </html>
